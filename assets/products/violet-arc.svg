@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-labelledby="title desc">
+<title id="title">Violet Arc</title>
+<desc id="desc">Stylized product image for Violet Arc limited sneaker drop.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#a855f7" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ec4899" stop-opacity="0.95"/>
+  </linearGradient>
+  <linearGradient id="shoe" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#ffffff"/>
+    <stop offset="45%" stop-color="#dbeafe"/>
+    <stop offset="100%" stop-color="#94a3b8"/>
+  </linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#000000" flood-opacity="0.36"/>
+  </filter>
+</defs>
+<rect width="900" height="650" rx="48" fill="#08111f"/>
+<circle cx="165" cy="110" r="190" fill="url(#bg)" opacity="0.24"/>
+<circle cx="780" cy="540" r="250" fill="url(#bg)" opacity="0.22"/>
+<path d="M90 520C220 420 358 405 518 445c108 27 199 23 292-29" fill="none" stroke="url(#bg)" stroke-width="26" stroke-linecap="round" opacity="0.34"/>
+<g filter="url(#shadow)" transform="translate(95 110) rotate(-8 360 250)">
+  <path d="M120 335c55-10 103-26 144-52 39-25 67-59 111-95 46-38 93-45 140-16 22 13 37 33 53 57 34 51 74 86 140 99 45 9 82 26 98 57 14 28 3 62-32 74-54 18-145 20-256 8-134-14-251-14-356 8-67 14-107-9-113-48-7-45 28-81 71-92z" fill="url(#shoe)"/>
+  <path d="M181 330c111 18 236 24 376 13 78-6 145 7 203 38" fill="none" stroke="#0f172a" stroke-width="19" stroke-linecap="round" opacity="0.62"/>
+  <path d="M304 259c44 23 94 35 154 35" fill="none" stroke="#a855f7" stroke-width="16" stroke-linecap="round"/>
+  <path d="M358 221l-31 57m82-75l-29 76m83-74l-27 77" stroke="#0f172a" stroke-width="10" stroke-linecap="round" opacity="0.62"/>
+  <path d="M566 250c22 48 58 82 108 100" fill="none" stroke="#ec4899" stroke-width="16" stroke-linecap="round"/>
+  <rect x="164" y="429" width="600" height="42" rx="21" fill="#f8fafc"/>
+  <path d="M190 449h530" stroke="#111827" stroke-width="8" stroke-linecap="round" opacity="0.45"/>
+</g>
+<text x="56" y="92" fill="#f8fafc" font-size="44" font-family="Segoe UI, Arial, sans-serif" font-weight="800">Violet Arc</text>
+<text x="58" y="132" fill="#cbd5e1" font-size="22" font-family="Segoe UI, Arial, sans-serif" font-weight="600">LIMITED DROP</text>
+</svg>

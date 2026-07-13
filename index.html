@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DropForge — a limited sneaker drop storefront with live stock, a countdown, and a cart that survives a refresh. Built with Bootstrap 5, vanilla JavaScript and localStorage." />
+  <meta name="author" content="Ahsen Bilal" />
+  <meta name="theme-color" content="#08111f" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DropForge | Limited Sneaker Drop" />
+  <meta property="og:description" content="Ten limited pairs, real-time stock, and a cart that survives a refresh." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="DropForge | Limited Sneaker Drop" />
+  <meta name="twitter:description" content="Ten limited pairs, real-time stock, and a cart that survives a refresh." />
+
+  <title>DropForge | Limited Sneaker Drop</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300d4ff'/%3E%3Cstop offset='1' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-size='52' font-family='sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EDF%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#home">Skip to content</a>
+  <nav class="navbar navbar-expand-lg fixed-top glass-nav" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-black d-flex align-items-center gap-2" href="#home">
+        <span class="brand-mark">DF</span>
+        <span>Drop<span class="text-accent">Forge</span></span>
+      </a>
+
+      <div class="d-flex align-items-center gap-2 order-lg-3">
+        <button class="btn btn-icon" id="themeToggle" type="button" aria-label="Toggle dark and light mode">☾</button>
+        <button class="btn btn-cart position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+          🛒 Cart
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">0</span>
+        </button>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+        <ul class="navbar-nav mx-lg-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#dropInfo">Drop Info</a></li>
+          <li class="nav-item"><a class="nav-link" href="#checkoutHelp">Checkout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="home">
+    <section class="hero-section">
+      <div class="hero-orb orb-one" aria-hidden="true"></div>
+      <div class="hero-orb orb-two" aria-hidden="true"></div>
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <p class="drop-label mb-3">Sneaker Drop · Wave 01</p>
+            <h1 class="hero-title">Limited pairs. Real-time stock. Cart that survives refresh.</h1>
+            <p class="hero-copy mt-3">
+              A Bootstrap-powered sneaker storefront where product cards are rendered from JavaScript data, filters work together, and the cart stays saved with localStorage.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="#products" class="btn btn-gradient btn-lg">Shop the Drop</a>
+              <button class="btn btn-outline-light btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">Open Cart</button>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="countdown-card glass-card p-4 p-md-5 text-center">
+              <span class="small text-uppercase letter-space text-muted-custom">Drop timer</span>
+              <div id="countdown" class="countdown-display my-3">00:00:00</div>
+              <p class="mb-0 text-muted-custom">The timer updates every second and switches cleanly when the drop goes live.</p>
+              <div class="row g-2 mt-4">
+                <div class="col-4"><div class="mini-stat"><strong id="totalProducts">0</strong><span>Products</span></div></div>
+                <div class="col-4"><div class="mini-stat"><strong id="totalStock">0</strong><span>Stock</span></div></div>
+                <div class="col-4"><div class="mini-stat"><strong>24h</strong><span>Drop</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-bar py-3">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-center gap-3 gap-md-5">
+          <span class="trust-pill">🔒 Secure Checkout</span>
+          <span class="trust-pill">🚚 Free Shipping · Wave 01</span>
+          <span class="trust-pill">↩ 7-Day Easy Returns</span>
+          <span class="trust-pill">✅ Verified Stock, Live</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5" id="products">
+      <div class="container">
+        <div class="section-head text-center mx-auto mb-4">
+          <p class="drop-label mb-2">Dynamic Catalog</p>
+          <h2 class="section-title">Shop the Limited Sneaker Drop</h2>
+          <p class="text-muted-custom mb-0">Search, category, price, rating and sort controls all work on the same JavaScript product data.</p>
+        </div>
+
+        <div class="filter-panel glass-card p-3 p-md-4 mb-4">
+          <div class="row g-3 align-items-end">
+            <div class="col-md-4">
+              <label for="searchInput" class="form-label">Search products</label>
+              <input type="search" class="form-control custom-input" id="searchInput" placeholder="Search sneakers..." autocomplete="off" />
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <label for="categoryFilter" class="form-label">Category</label>
+              <select class="form-select custom-input" id="categoryFilter">
+                <option value="all">All</option>
+              </select>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <label for="ratingFilter" class="form-label">Rating</label>
+              <select class="form-select custom-input" id="ratingFilter">
+                <option value="0">All ratings</option>
+                <option value="4.8">4.8+</option>
+                <option value="4.6">4.6+</option>
+                <option value="4.4">4.4+</option>
+              </select>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <label for="sortFilter" class="form-label">Sort</label>
+              <select class="form-select custom-input" id="sortFilter">
+                <option value="featured">Featured</option>
+                <option value="price-low">Price low-high</option>
+                <option value="price-high">Price high-low</option>
+                <option value="rating-high">Top rated</option>
+                <option value="stock-low">Lowest stock</option>
+              </select>
+            </div>
+            <div class="col-sm-6 col-md-2">
+              <label for="priceFilter" class="form-label">Max price: <span id="priceValue">Rs 25,000</span></label>
+              <input type="range" class="form-range" id="priceFilter" min="5000" max="25000" step="500" value="25000" />
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-3">
+            <span class="text-muted-custom small" id="resultCount">Showing 0 products</span>
+            <button class="btn btn-sm btn-outline-light" id="resetFilters" type="button">Reset filters</button>
+          </div>
+        </div>
+
+        <div class="row" id="productGrid" aria-live="polite"></div>
+        <div class="empty-state glass-card p-5 text-center d-none" id="emptyState">
+          <h3>No sneakers found</h3>
+          <p class="text-muted-custom mb-3">Try reducing filters or searching a different drop name.</p>
+          <button class="btn btn-gradient" id="emptyReset" type="button">Show all products</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5" id="dropInfo">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="info-card glass-card h-100 p-4">
+              <span class="info-icon">⚡</span>
+              <h3>Live Stock</h3>
+              <p>Stock labels update as soon as items are added, removed, or quantity is changed in the cart.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-card glass-card h-100 p-4">
+              <span class="info-icon">💾</span>
+              <h3>Persistent Cart</h3>
+              <p>The cart is stored in localStorage, so refreshing the page does not remove selected products.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-card glass-card h-100 p-4">
+              <span class="info-icon">🔎</span>
+              <h3>Combined Filters</h3>
+              <p>Search, category, price, rating and sorting are applied together on one product catalog.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 pb-6" id="checkoutHelp">
+      <div class="container">
+        <div class="checkout-banner glass-card p-4 p-md-5 text-center">
+          <p class="drop-label mb-2">Checkout Simulation</p>
+          <h2 class="section-title">No backend. No payment gateway. Just clean frontend logic.</h2>
+          <p class="text-muted-custom mb-4">Bootstrap validation checks the checkout form and then simulates a successful order.</p>
+          <button class="btn btn-gradient" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">Review Cart</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="offcanvas offcanvas-end cart-panel" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartTitle">
+    <div class="offcanvas-header">
+      <div>
+        <h5 class="offcanvas-title mb-1" id="cartTitle">Shopping Cart</h5>
+        <p class="small text-muted-custom mb-0">Saved automatically with localStorage</p>
+      </div>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div id="cartItems" class="cart-items flex-grow-1"></div>
+      <div class="cart-summary pt-3 mt-3 border-top border-secondary-subtle">
+        <div class="d-flex justify-content-between mb-2"><span>Subtotal</span><strong id="cartSubtotal">Rs 0</strong></div>
+        <div class="d-flex justify-content-between mb-2"><span>Discount</span><strong id="discountAmount">Rs 0</strong></div>
+        <div class="input-group input-group-sm mb-3">
+          <input type="text" class="form-control custom-input" id="discountCode" placeholder="Try DROP10" />
+          <button class="btn btn-outline-light" id="applyDiscount" type="button">Apply</button>
+        </div>
+        <div class="d-flex justify-content-between fs-5 mb-3"><span>Total</span><strong id="cartTotal">Rs 0</strong></div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-gradient" id="checkoutButton" type="button" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
+          <button class="btn btn-outline-danger" id="clearCart" type="button">Clear Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content glass-modal">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="modalTitle">Product Details</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+              <img src="" alt="" class="img-fluid rounded-4 modal-product-img" id="modalImage" />
+            </div>
+            <div class="col-md-6">
+              <p class="drop-label mb-2" id="modalCategory">Sneaker</p>
+              <p class="text-muted-custom" id="modalDesc"></p>
+              <div class="d-flex gap-2 flex-wrap mb-3" id="modalTags"></div>
+              <p class="h4 mb-1" id="modalPrice">Rs 0</p>
+              <p class="mb-3" id="modalStock"></p>
+              <button class="btn btn-gradient w-100" id="modalAddToCart" type="button">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content glass-modal">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="checkoutTitle">Checkout Details</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-success d-none" id="orderSuccess" role="alert">
+            Order placed successfully! This is a frontend simulation.
+          </div>
+          <form id="checkoutForm" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="customerName" class="form-label">Full Name</label>
+              <input type="text" class="form-control custom-input" id="customerName" required />
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="mb-3">
+              <label for="customerEmail" class="form-label">Email</label>
+              <input type="email" class="form-control custom-input" id="customerEmail" required />
+              <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+            <div class="mb-3">
+              <label for="customerPhone" class="form-label">Phone</label>
+              <input type="tel" class="form-control custom-input" id="customerPhone" pattern="^[0-9+\-\s]{8,}$" required />
+              <div class="invalid-feedback">Please enter a valid phone number.</div>
+            </div>
+            <div class="mb-3">
+              <label for="customerAddress" class="form-label">Delivery Address</label>
+              <textarea class="form-control custom-input" id="customerAddress" rows="3" required></textarea>
+              <div class="invalid-feedback">Please enter your delivery address.</div>
+            </div>
+            <button class="btn btn-gradient w-100" type="submit">Place Order</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="appToast" class="toast align-items-center text-bg-dark border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMessage">Added to cart.</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-4 border-top border-secondary-subtle">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2 text-center text-md-start">
+      <p class="mb-0 text-muted-custom">© <span id="year"></span> Ahsen Bilal. CloudExify Project 2.</p>
+      <p class="mb-0 text-muted-custom">Bootstrap 5 · Vanilla JavaScript · localStorage</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
