@@ -257,11 +257,11 @@ html[data-theme="light"] .navbar-toggler-icon {
 }
 
 .hero-title {
-  max-width: 880px;
-  font-size: clamp(2.5rem, 7vw, 5.7rem);
-  line-height: 0.98;
-  letter-spacing: -0.065em;
-  font-weight: 950;
+  max-width: 760px;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  font-weight: 900;
 }
 
 .hero-copy {
@@ -473,9 +473,19 @@ html[data-theme="light"] .navbar-toggler-icon {
 }
 
 .card-img-top {
-  height: 210px;
-  object-fit: cover;
+  height: 230px;
+  object-fit: contain;
+  padding: 14px;
+  background: #f8fafc;
   transition: transform 0.35s ease;
+}
+
+.modal-product-img {
+  max-height: 420px;
+  width: 100%;
+  object-fit: contain;
+  background: #f8fafc;
+  padding: 14px;
 }
 
 .product-card:hover .card-img-top {
@@ -648,7 +658,8 @@ footer {
 
 @media (max-width: 575px) {
   .hero-title {
-    font-size: clamp(2.35rem, 13vw, 3.4rem);
+    font-size: clamp(1.75rem, 10vw, 2.6rem);
+    line-height: 1.12;
   }
 
   .btn-cart {

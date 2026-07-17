@@ -467,7 +467,7 @@ function startCountdown() {
 
   const targetDate = getOrCreateDropTarget();
 
-  const timer = setInterval(() => {
+  function updateCountdown() {
     const diff = new Date(targetDate) - new Date();
 
     if (diff <= 0) {
@@ -481,7 +481,10 @@ function startCountdown() {
     const seconds = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
 
     countdownEl.textContent = `${hours}:${minutes}:${seconds}`;
-  }, 1000);
+  }
+
+  updateCountdown();
+  const timer = setInterval(updateCountdown, 1000);
 }
 
 function applyDiscountCode() {
@@ -598,12 +601,17 @@ function initEvents() {
   });
 
   window.addEventListener('storage', (event) => {
-    if ([STORAGE_KEYS.cart, STORAGE_KEYS.discount, STORAGE_KEYS.theme].includes(event.key)) {
-      renderCart();
-      applyFilters();
-      initTheme();
-    }
-  });
+  if ([STORAGE_KEYS.cart, STORAGE_KEYS.discount].includes(event.key)) {
+    renderCart();
+    applyFilters();
+  }
+
+  if (event.key === STORAGE_KEYS.theme) {
+    const savedTheme = localStorage.getItem(STORAGE_KEYS.theme) || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    if (themeToggle) themeToggle.textContent = savedTheme === 'dark' ? '☾' : '☀';
+  }
+});
 }
 
 function initNavbarScroll() {

@@ -1,22 +1,20 @@
 # CloudExify Project 2 — E-Commerce Product Page
 
-## Student Information
+## Intern Information
 
 **Name:** Ahsen Bilal  
-**Registration Number:** CX-2026-XXXX  
+**Registration Number:** CX-INT-2026-GEN-0208  
 **Project Name:** E-Commerce Product Page  
 **Repository Name:** CloudExify-Project-2  
 **Project Type:** Interactive Frontend Application  
 **Deployment:** Vercel  
-
-> Replace `CX-2026-XXXX` with your actual registration number before final submission.
 
 ---
 
 ## Live Links
 
 **GitHub Repository:** https://github.com/ahsenbilal19/CloudExify-Project-2  
-**Live Vercel Link:** Add your live Vercel URL here after deployment.
+**Live Vercel Link:** https://cloudexify-project-2.vercel.app/
 
 ---
 
@@ -88,7 +86,7 @@ All filters work together on the same product dataset.
 - Toast notification on add/remove/cart actions
 - Dark/light mode toggle saved with localStorage
 - Responsive Bootstrap product grid
-- Custom product SVG images
+- Custom AI-generated JPG product images
 
 ## Design Polish
 
@@ -178,23 +176,23 @@ assets/screenshots/mobile.png
 
 | Test Case | Expected Result | Status |
 |---|---|---|
-| Open live Vercel link | Store loads correctly | Pending |
-| Countdown timer | Counts down every second | Pending |
-| Add to cart | Stock decreases correctly | Pending |
-| Refresh page | Cart remains saved | Pending |
-| Remove item | Cart and stock update | Pending |
-| Change quantity | Total recalculates | Pending |
-| Search products | Product grid filters live | Pending |
-| Category + price + rating filters | Combined filters work correctly | Pending |
-| Product modal | Correct product details show | Pending |
-| Checkout form validation | Invalid fields show errors | Pending |
-| Mobile layout | Bootstrap grid adapts cleanly | Pending |
-| Browser console | No JavaScript errors | Pending |
+| Open live Vercel link | Store loads correctly | Passed |
+| Countdown timer | Counts down every second | Passed |
+| Add to cart | Stock decreases correctly | Passed |
+| Refresh page | Cart remains saved | Passed |
+| Remove item | Cart and stock update | Passed |
+| Change quantity | Total recalculates | Passed |
+| Search products | Product grid filters live | Passed |
+| Category + price + rating filters | Combined filters work correctly | Passed |
+| Product modal | Correct product details show | Passed |
+| Checkout form validation | Invalid fields show errors | Passed |
+| Mobile layout | Bootstrap grid adapts cleanly | Passed |
+| Browser console | No JavaScript errors | Passed |
 
 ---
 
 ## Final Submission Message
 
 ```text
-[CX-2026-XXXX] Web Project 2 Done — GitHub: https://github.com/ahsenbilal19/CloudExify-Project-2 | Live: [your Vercel link]
+[CX-INT-2026-GEN-0208] Web Project 2 Done — GitHub: https://github.com/ahsenbilal19/CloudExify-Project-2 | Live: https://cloudexify-project-2.vercel.app/
 ```

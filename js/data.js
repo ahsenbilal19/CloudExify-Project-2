@@ -8,7 +8,7 @@ window.PRODUCTS = [
     price: 8500,
     stock: 6,
     rating: 4.7,
-    image: 'assets/products/volt-runner.svg',
+    image: 'assets/products/volt-runner.jpg',
     description: 'Limited neon runner built for fast city movement and lightweight comfort. Drop wave 01 colorway.',
     tags: ['Neon', 'Lightweight', 'Wave 01']
   },
@@ -19,7 +19,7 @@ window.PRODUCTS = [
     price: 7200,
     stock: 3,
     rating: 4.5,
-    image: 'assets/products/midnight-trainer.svg',
+    image: 'assets/products/midnight-trainer.jpg',
     description: 'Dark tonal trainer with cushioned sole and clean street-ready finish. Only a few pairs in this size run.',
     tags: ['Midnight', 'Cushion', 'Limited']
   },
@@ -30,7 +30,7 @@ window.PRODUCTS = [
     price: 14500,
     stock: 4,
     rating: 4.9,
-    image: 'assets/products/crimson-high.svg',
+    image: 'assets/products/crimson-high.jpg',
     description: 'Premium high-top sneaker with bold crimson paneling, reinforced ankle support and collector packaging.',
     tags: ['High Top', 'Premium', 'Collector']
   },
@@ -41,7 +41,7 @@ window.PRODUCTS = [
     price: 9800,
     stock: 8,
     rating: 4.6,
-    image: 'assets/products/aero-knit.svg',
+    image: 'assets/products/aero-knit.jpg',
     description: 'Breathable knit runner with flexible upper and clean everyday performance styling.',
     tags: ['Knit', 'Breathable', 'Everyday']
   },
@@ -52,7 +52,7 @@ window.PRODUCTS = [
     price: 11800,
     stock: 5,
     rating: 4.4,
-    image: 'assets/products/shadow-court.svg',
+    image: 'assets/products/shadow-court.jpg',
     description: 'Court-inspired lifestyle sneaker with layered panels, soft lining and a minimal shadow colorway.',
     tags: ['Court', 'Lifestyle', 'Soft Lining']
   },
@@ -63,7 +63,7 @@ window.PRODUCTS = [
     price: 13200,
     stock: 2,
     rating: 4.8,
-    image: 'assets/products/neon-pulse.svg',
+    image: 'assets/products/neon-pulse.jpg',
     description: 'A rare neon running silhouette designed for the fastest checkout. Very low stock alert.',
     tags: ['Rare', 'Neon', 'Low Stock']
   },
@@ -74,7 +74,7 @@ window.PRODUCTS = [
     price: 10500,
     stock: 7,
     rating: 4.3,
-    image: 'assets/products/retro-wave.svg',
+    image: 'assets/products/retro-wave.jpg',
     description: 'Retro-inspired casual sneaker with sunset tones, comfort foam and throwback drop styling.',
     tags: ['Retro', 'Comfort', 'Casual']
   },
@@ -85,7 +85,7 @@ window.PRODUCTS = [
     price: 12500,
     stock: 6,
     rating: 4.7,
-    image: 'assets/products/glacier-step.svg',
+    image: 'assets/products/glacier-step.jpg',
     description: 'Ice-blue trainer with stable grip, padded heel and clean performance look for daily workouts.',
     tags: ['Grip', 'Padded', 'Workout']
   },
@@ -96,7 +96,7 @@ window.PRODUCTS = [
     price: 21000,
     stock: 3,
     rating: 4.9,
-    image: 'assets/products/carbon-elite.svg',
+    image: 'assets/products/carbon-elite.jpg',
     description: 'Premium carbon-inspired high top with collector-grade materials and limited numbered release.',
     tags: ['Elite', 'Carbon', 'Numbered']
   },
@@ -107,7 +107,7 @@ window.PRODUCTS = [
     price: 9400,
     stock: 9,
     rating: 4.5,
-    image: 'assets/products/violet-arc.svg',
+    image: 'assets/products/violet-arc.jpg',
     description: 'A smooth lifestyle sneaker with violet gradient details, soft midsole and everyday streetwear feel.',
     tags: ['Violet', 'Streetwear', 'Comfort']
   }
