@@ -118,56 +118,13 @@ CloudExify-Project-2/
 
 ---
 
-## How to Run Locally
-
-Open `index.html` directly in your browser or use VS Code Live Server.
-
-No npm installation is required because Bootstrap is loaded through CDN.
-
----
-
-## Deployment Steps on Vercel
-
-1. Create a public GitHub repository named exactly:
-
-```text
-CloudExify-Project-2
-```
-
-2. Push this project code to the repository.
-
-3. Go to Vercel and click **Add New Project**.
-
-4. Import the `CloudExify-Project-2` repository.
-
-5. Framework preset: **Other**.
-
-6. Leave build command and output directory empty.
-
-7. Click **Deploy**.
-
-8. Copy your live `.vercel.app` link and add it to this README.
-
----
 
 ## Screenshots
 
-Add at least two screenshots inside:
+Screenshots inside:
 
 ```text
 assets/screenshots/
-```
-
-Required screenshots:
-
-- Desktop screenshot
-- Mobile screenshot
-
-Recommended file names:
-
-```text
-assets/screenshots/desktop.png
-assets/screenshots/mobile.png
 ```
 
 ---

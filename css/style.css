@@ -680,3 +680,53 @@ footer {
     height: 70px;
   }
 }
+
+/* Final mobile polish */
+@media (max-width: 575px) {
+  .hero-section {
+    padding-top: 110px;
+    padding-bottom: 60px;
+  }
+
+  .drop-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-title {
+    font-size: clamp(1.65rem, 8.5vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    max-width: 100%;
+  }
+
+  .hero-copy {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+    padding: 0.8rem 1.1rem;
+  }
+
+  .countdown-card {
+    padding: 28px 20px !important;
+  }
+
+  .countdown-display {
+    font-size: clamp(2.2rem, 13vw, 3.2rem);
+  }
+
+  .mini-stat {
+    padding: 10px 6px;
+  }
+
+  .mini-stat strong {
+    font-size: 1.1rem;
+  }
+
+  .mini-stat span {
+    font-size: 0.65rem;
+  }
+}
