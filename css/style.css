@@ -730,3 +730,18 @@ footer {
     font-size: 0.65rem;
   }
 }
+
+/* Fix mobile tap issue on hero buttons */
+.hero-section {
+  position: relative;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-orb,
+body::before {
+  pointer-events: none;
+}
